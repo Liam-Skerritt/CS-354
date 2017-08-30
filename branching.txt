@@ -1,0 +1,20 @@
+ Branching and merging are done by typing the following in terminal:
+
+- Create the branch on your local machine and switch in this branch:
+    $ git checkout -b [name of your new branch]
+    
+- Change working branch to [name of your new branch](I think its when you want to switch between branches you already created):
+    $ git checkout [name of your branch]
+  
+- Push the branch onto git:
+   $ git push origin [name of your branch]
+   
+- View all the branches you have created:
+   $ git branch
+   
+- To merge back into master:
+   $ git checout master
+   $ git merge [name of your branch]
+   
+- To delete branch:
+   $ git branch -d [name of your branch]
