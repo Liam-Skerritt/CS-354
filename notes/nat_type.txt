@@ -1,0 +1,48 @@
+4.1.1. Basic NAT
+
+   With Basic NAT, a block of external addresses are set aside for
+   translating addresses of hosts in a private domain as they originate
+   sessions to the external domain. For packets outbound from the
+   private network, the source IP address and related fields such as IP,
+   TCP, UDP and ICMP header checksums are translated. For inbound
+   packets, the destination IP address and the checksums as listed above
+   are translated.
+   
+                 		  ________________
+                                 (                )
+                                (   External       )    +--+
+                               (  Address Realm     )-- |__|
+                                (     (N-Ext)      )   /____\
+                                 (________________)    Host-X
+                                        |              (Addr-X)
+                                        |(Addr-Nx)
+                           +--------------+
+                           |              |
+                           |  NAT router  |
+                           |              |
+                           +--------------+
+                             |(Addr-Np)
+                             |
+                     ----------------
+                    (                )
+        +--+       (     Private      )
+        |__|------(    Address Realm   )
+       /____\      (     (N-pri)      )
+       Host-A       (________________)
+       (Addr-A)
+       
+   A Basic NAT router above may be configured to translate N-Pri
+   into a block of external addresses, say Addr-i through Addr-n,
+   selected from the external network N-Ext.
+   
+   Host-A, with address Addr-A is located in a private realm,
+   represented by the network N-Pri. N-Pri is isolated from external
+   network through a NAT router. Host-X, with address Addr-X is located
+   in an external realm, represented by the network N-Ext.  NAT router
+   with two interfaces, each attached to one of the realms provides
+   transparent routing between the two realms. The interface to the
+   external realm is assigned an address of Addr-Nx and the interface to
+   private realm is assigned an address of Addr-Np.  Further, it may be
+   understood that addresses Addr-A and Addr-Np correspond to N-Pri
+   network and the addresses Addr-X and Addr-Nx correspond to N-Ext
+   network.

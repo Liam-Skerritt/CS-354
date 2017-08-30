@@ -1,0 +1,23 @@
+Some stuff that I saw in the document that might be important:
+
+-- TCP/UDP sessions are uniquely identified by the tuple of (source IP address, source TCP/UDP port, target IP address, target TCP/UDP port)
+
+-- ICMP query sessions are identified by the tuple of (source IP address, ICMP query ID, target IP address)
+   
+-- All other sessions are characterized by the tuple of (source IP address, target IP address, IP protocol).
+
+-- Address translations performed by NAT are session based and would include translation of incoming as well as outgoing packets belonging to that session. Session direction is identified by the direction of the first packet of that session.
+
+-- TCP port range 0-1023 is used by servers listening for incoming connections. Clients trying to initiate a connection typically select a source TU port in the range of 1024-65535. However, this convention is not universal and not always followed.
+
+-- Start of session for TCP: The first packet of every TCP session tries to establish a session and contains connection startup information. The first packet of a TCP session may be recognized by the presence of SYN bit and absence of ACK bit in the TCP flags. All TCP packets, with the exception of the first packet, must have the ACK bit set.
+
+-- A Global or Public Network is an address realm with unique network addresses assigned by Internet Assigned Numbers Authority (IANA) or an equivalent address registry. This network is also referred as External network during NAT discussions. 
+
+-- Address Allocation for Private Internets: https://tools.ietf.org/html/rfc1918
+
+-- Application Level gateway (ALG): application specific translation agents that allow an application on a host in one address realm to connect to its counterpart running on a host in different realm transparently.  An ALG may interact with NAT to set up state, use NAT state information, modify application specific payload and perform whatever else is necessary to get the application running across disparate address realms.
+
+-- ALGs are similar to Proxies, in that, both ALGs and proxies facilitate Application specific communication between clients and servers. Proxies use a special protocol to communicate with proxy clients and relay client data to servers and vice versa. Unlike Proxies, ALGs do not use a special protocol to communicate with application clients and do not require changes to application clients.
+
+
