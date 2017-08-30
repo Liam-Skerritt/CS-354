@@ -1,0 +1,3 @@
+How Network Address Translation Works: https://www.youtube.com/watch?v=QBqPzHEDzvo
+Automatic IP Address Assignment: How DHCP Works: https://www.youtube.com/watch?v=RUZohsAxPxQ
+

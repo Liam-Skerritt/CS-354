@@ -1,0 +1,6 @@
+"Realm Specific IP" (RSIP) is used to characterize the functionality
+   of a realm-aware host in a private realm, which assumes realm-
+   specific IP address to communicate with hosts in private or external
+   realm.
+   
+   
