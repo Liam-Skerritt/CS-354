@@ -13,7 +13,7 @@
    $ git branch
    
 - To merge back into master:
-   $ git checout master
+   $ git checkout master
    $ git merge [name of your branch]
    
 - To delete branch:
