@@ -39,14 +39,28 @@ public class Test {
             System.out.println("Error while loading ip adresses: " + e);
         }
     }
+    //Add an external IP and internal IP key value pair to NAT_table
+    public static void add_to_NAT(Paquet in_paquet){
+        NAT_table.put(in_paquet.getDestIP(), in_paquet.getSourceIP());
+    }
+    //Removes external ip and internal ip key value pair from NAT_table
+    //NAT_table.get(external_ip) will return NULL
+    public static void remove_from_NAT(Paquet in_paquet){
+        NAT_table.remove(in_paquet.getDestIP());
+    }
     /**
      * @param args the command line arguments
      */
+    
     static Hashtable<String, String> available_ip = new Hashtable<String, String>();
     static Hashtable<String, String> available_mac = new Hashtable<String, String>();
+    static Hashtable<String, String> NAT_table = new Hashtable<String, String>();
     public static void main(String[] args) {
-        load_available_ip();
-        System.out.println(available_ip.get("192.168.0.1"));
+        Paquet test = new Paquet("192.168.0.1", "215.14.32.16", "ab:ac:ad:ae:af:fa", 100, "");
+        add_to_NAT(test);
+        System.out.println(NAT_table.get("215.14.32.16"));
+        remove_from_NAT(test);
+        System.out.println(NAT_table.get("215.14.32.16"));
         // TODO code application logic here
     }
       
